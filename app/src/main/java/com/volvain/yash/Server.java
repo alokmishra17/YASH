@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.HttpURLConnection;
-import org.json.simple.JSONObject;
+/*import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+*/
 public class Server  {
 Context c;
 URL url;
@@ -73,7 +73,8 @@ Server(Context c){
         return message;
 
     }
-    public void sync(Long myId){
+
+  /*  public void sync(Long myId){
     String message="";
         try {
             url=new URL(serverUri+"/sync?id="+myId);
@@ -82,12 +83,13 @@ Server(Context c){
             int b=0;
             if((b=i.read())==-1)return;
             else{
-                message+=(char)b;
+              message+=(char)b;
             while((b=i.read())!=-1)message+=(char)b;
             JSONObject obj=(JSONObject) new JSONParser().parse(message);
             Long id=Long.parseLong(obj.get("id").toString());
             Double longitude=Double.parseDouble(obj.get("longitude").toString());
             Double latitude=Double.parseDouble(obj.get("latitude").toString());
+            String name=obj.get("name").toString();
             //TODO insert id,longitude,latitude in help table and send notification accordingly
 
             }
@@ -98,5 +100,5 @@ Server(Context c){
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
